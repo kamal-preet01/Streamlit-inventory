@@ -1,0 +1,173 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f6;
+}
+
+.stApp {
+    background-color: #ffffff;
+}
+
+/* Updated header styles with all corners rounded */
+.app-header {
+    background: linear-gradient(135deg, #1f487e, #3498db);
+    color: white;
+    padding: 0.75rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem 1rem 1.5rem 1rem;
+    border-radius: 10px;
+}
+
+.main-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-top: 0;
+}
+/* Sub-headers */
+.sub-header {
+    color: #1f487e;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #1f487e;
+}
+
+/* Card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 2rem;
+}
+
+.card-container > div {
+    flex: 0 1 calc(50% - 15px);
+    margin-bottom: 30px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
+}
+/* Property card styles */
+.property-card {
+    background-color: #eff2f9;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.property-card h3 {
+    color: #1f487e;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1f487e;
+    padding-bottom: 10px;
+    text-align: center;
+    position: relative;
+}
+
+
+.property-details {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.property-column {
+    flex: 0 0 48%;
+}
+
+.property-item {
+    margin-bottom: 12px;
+}
+
+.property-label {
+    font-weight: 600;
+    color: #1f487e;
+    font-size: 0.9rem;
+}
+
+.property-value {
+    color: #333;
+    font-size: 0.9rem;
+}
+.whatsapp-share {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    background-color: #25D366;
+    color: #ffffff !important;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #24a40b;
+}
+/* Streamlit specific styles */
+.stButton > button {
+    width: 100%;
+    background-color: #1f487e;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stButton > button:hover {
+    background-color: #2a5ca5;
+}
+
+.stSelectbox, .stMultiSelect {
+    margin-bottom: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .card-container > div {
+        flex: 0 1 100%;
+    }
+}
+
+/* Additional custom styles can be added here */
