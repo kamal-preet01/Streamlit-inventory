@@ -28,7 +28,20 @@ def fetch_data(worksheet_name):
 
 
 def main():
-    st.set_page_config(page_title="Aadhunik Property Finder", layout="wide")
+    # Set the theme to light mode
+    st.set_page_config(page_title="Aadhunik Property Finder", layout="wide", initial_sidebar_state="expanded")
+    
+    # Force light theme
+    st.markdown("""
+        <style>
+        :root {
+            --secondary-background-color: #ffffff;
+            --primary-background-color: #ffffff;
+            --body-text-color: #000000;
+            --text-color: #000000;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
     # Load custom CSS
     with open('style.css') as f:
