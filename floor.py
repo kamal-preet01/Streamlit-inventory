@@ -1,6 +1,25 @@
 import streamlit as st
 import urllib.parse
-import webbrowser
+
+def share_selected_properties(selected_properties, custom_column_names, whatsapp_columns):
+    # Prepare the message for multiple properties
+    whatsapp_message = "Check out these Floors:\n\n"
+    for row in selected_properties.values():
+        property_details = "\n".join([f"{custom_column_names.get(col, col)}: {row.get(col, 'N/A')}" for col in whatsapp_columns])
+        whatsapp_message += f"{property_details}\n\n"
+
+    # Create the WhatsApp share URL
+    whatsapp_url = f"https://wa.me/?text={urllib.parse.quote(whatsapp_message)}"
+
+    # Display the URL to the user
+    st.markdown(f"""
+    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+        <p>Click the link below to share the selected properties on WhatsApp:</p>
+        <a href="{whatsapp_url}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.info("If the link doesn't work, you can copy and paste it into your browser.")
 
 def render_floor(df):
     st.markdown("<h2 class='sub-header'>FLOORS</h2>", unsafe_allow_html=True)
@@ -118,19 +137,3 @@ def render_floor(df):
         # Display a message if no results
         if st.session_state.filtered_df.empty:
             st.warning("No properties match the selected filters.")
-
-def share_selected_properties(selected_properties, custom_column_names, whatsapp_columns):
-    # Prepare the message for multiple properties
-    whatsapp_message = "Check out these Floors:\n\n"
-    for row in selected_properties.values():
-        property_details = "\n".join([f"{custom_column_names.get(col, col)}: {row.get(col, 'N/A')}" for col in whatsapp_columns])
-        whatsapp_message += f"{property_details}\n\n"
-
-    # Create the WhatsApp share URL
-    whatsapp_url = f"https://wa.me/?text={urllib.parse.quote(whatsapp_message)}"
-
-    # Open the WhatsApp URL directly
-    webbrowser.open(whatsapp_url)
-
-    # Provide a message to the user
-    st.success("WhatsApp should open in a new tab. If it doesn't, please check your browser settings.")
