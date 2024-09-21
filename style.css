@@ -170,4 +170,18 @@ body {
     }
 }
 
+/* Checkbox styles */
+.stCheckbox {
+    margin-bottom: 10px;
+}
+
+/* Share button styles */
+.stButton > button:last-of-type {
+    background-color: #25D366;
+    margin-top: 20px;
+}
+
+.stButton > button:last-of-type:hover {
+    background-color: #24a40b;
+}
 /* Additional custom styles can be added here */
