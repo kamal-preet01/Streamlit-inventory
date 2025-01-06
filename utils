@@ -1,0 +1,16 @@
+# utils.py
+from googleapiclient.discovery import build
+from google.oauth2.service_account import Credentials
+
+def get_google_sheet_data(sheet_name):
+    # Set up Google Sheets API credentials
+    creds = Credentials.from_service_account_file("keys.json")
+    service = build("sheets", "v4", credentials=creds)
+    sheet = service.spreadsheets()
+
+    # Read data from the specified sheet
+    spreadsheet_id = "1yz74MaxJ-C5OfoSxfCQ7A9wtdlY-53PyBV3OmDiR0i8"
+    result = sheet.values().get(spreadsheetId=spreadsheet_id, range=sheet_name).execute()
+    data = result.get("values", [])
+
+    return data
